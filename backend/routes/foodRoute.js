@@ -1,4 +1,3 @@
-// Phương Trang
 // Định nghĩa các routes cho food
 import express from 'express'
 import { addFood, listFood, removeFood, getFoodById, addComment, searchFood, getFoodByName } from '../controllers/foodController.js'

@@ -5,7 +5,6 @@ import axios from 'axios';
 import { assets } from '../../assets/assets.js';
 import { useNavigate } from 'react-router-dom';
 
-// Phạm Chiến, Thu Thảo
 // Trang MyOrders để hiện các đơn hàng mà người dùng đã mua
 const MyOrders = () => {
     

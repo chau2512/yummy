@@ -1,4 +1,3 @@
-// Phạm Chiến
 // Định nghĩa các routes cho order
 import express from "express"
 import authMiddleware from "../middleware/auth.js"

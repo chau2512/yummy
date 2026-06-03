@@ -4,7 +4,6 @@ import { StoreContext } from '../../context/StoreContext'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
 
-// Phạm Chiến
 // Trang PlaceOrder sử dụng để người dùng điền thông tin giao hàng của đơn hàng
 const PlaceOrder = () => {
 

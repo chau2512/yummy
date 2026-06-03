@@ -3,7 +3,6 @@ import './Profile.css';
 import { StoreContext } from '../../context/StoreContext';
 import axios from 'axios';
 
-// Thu Thảo
 // Trang Profile để hiện thị các thông tin người dùng và tính năng thay đổi thông tin người dùng
 const Profile = () => {
 

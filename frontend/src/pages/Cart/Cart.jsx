@@ -3,7 +3,6 @@ import './Cart.css'
 import { StoreContext } from '../../context/StoreContext'
 import { useNavigate } from 'react-router-dom'
 
-// Đỗ Trang
 // Page cart để hiện thị danh sách các món ăn trong giỏ hàng
 const Cart = () => {
 

@@ -6,7 +6,6 @@ import axios from 'axios';
 import { assets } from '../../assets/assets';
 import FoodItem from '../../components/FoodItem/FoodItem';
 
-// Phạm Chiến, Thu Thảo
 // Trang Food để hiện thị thông tin chi tiết của món ăn
 const Food = () => {
 

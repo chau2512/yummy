@@ -1,4 +1,3 @@
-// Thu Thảo
 // Định nghĩa các routes cho cart
 import express from 'express'
 import { addToCart, removeFromCart, getCart } from '../controllers/cartController.js'

@@ -1,4 +1,3 @@
-// Phạm Chiến
 // Controllers order nhận các yêu cầu HTTP từ routes order để xử lý các logic liên quan đến order
 import orderModel from "../models/orderModel.js"
 import userModel from "../models/userModel.js"

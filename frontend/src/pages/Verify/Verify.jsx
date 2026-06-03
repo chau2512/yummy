@@ -4,7 +4,6 @@ import { useSearchParams, useNavigate } from 'react-router-dom'
 import { StoreContext } from '../../context/StoreContext'
 import axios from 'axios';
 
-// Phạm Chiến
 // Trang Verify để xứ đơn hàng sau khi thanh toán
 const Verify = () => {
     

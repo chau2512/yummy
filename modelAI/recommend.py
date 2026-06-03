@@ -1,4 +1,3 @@
-# Phương Trang, Đỗ Trang
 import numpy as np 
 import pandas as pd 
 import sklearn

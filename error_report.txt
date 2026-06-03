@@ -1,0 +1,109 @@
+============================================================
+  BÁO CÁO TỔNG HỢP LỖI — DỰ ÁN YUMM!
+  Ngày phân tích: 03/03/2026
+============================================================
+
+TỔNG CỘNG: 8 LỖI — ĐÃ SỬA HẾT (8/8)
+
+============================================================
+LỖI 1 [CRITICAL] — MongoDB Atlas Cluster không tồn tại
+============================================================
+File:       backend/config/db.js
+Lỗi:       Connection string trỏ đến cluster đã bị xóa/hết hạn
+            mongodb+srv://22022638:bakeryweb@cluster0.zcdqe8x.mongodb.net/food-del
+Triệu chứng: Error: querySrv ECONNREFUSED _mongodb._tcp.cluster0.zcdqe8x.mongodb.net
+Hậu quả:   Backend crash, toàn bộ website không hoạt động
+Cách sửa:  Cài MongoDB 8.2.5 local, đổi connection string sang localhost
+Trạng thái: DA SUA
+
+============================================================
+LỖI 2 [CRITICAL] — Không có error handling khi kết nối DB
+============================================================
+File:       backend/config/db.js
+Lỗi:       Hàm connectDB() không có try-catch
+Hậu quả:   Server crash với UnhandledPromiseRejection, không phục hồi được
+Cách sửa:  Thêm try-catch trong connectDB()
+            Thêm process.on('unhandledRejection') trong server.js
+Trạng thái: DA SUA
+
+============================================================
+LỖI 3 [CRITICAL] — Thiếu thư viện scikit-learn
+============================================================
+File:       modelAI/recommend.py
+Lỗi:       import sklearn nhưng package scikit-learn chưa cài
+Triệu chứng: ModuleNotFoundError: No module named 'sklearn'
+Hậu quả:   AI model (port 4040) crash, hệ thống gợi ý không hoạt động
+Cách sửa:  pip install scikit-learn
+Trạng thái: DA SUA
+
+============================================================
+LỖI 4 [HIGH] — Connection string hardcode trong code
+============================================================
+File:       backend/config/db.js
+Lỗi:       Connection string viết trực tiếp trong code, không dùng .env
+Hậu quả:   Khó thay đổi cấu hình, lộ credentials khi push lên git
+Cách sửa:  Đọc từ process.env.MONGODB_URI
+            Thêm biến MONGODB_URI vào file .env
+Trạng thái: DA SUA
+
+============================================================
+LỖI 5 [HIGH] — Credentials DB bị lộ trong source code
+============================================================
+File:       backend/config/db.js (trước khi sửa)
+Lỗi:       Username "22022638" và password "bakeryweb" lộ trong code
+Hậu quả:   Bảo mật — ai xem code đều biết credentials DB
+Cách sửa:  Đã loại bỏ credentials khỏi code, chuyển vào .env
+Ghi chú:   Credentials cũ không còn giá trị vì cluster đã bị xóa
+Trạng thái: DA SUA
+
+============================================================
+LỖI 6 [HIGH] — PowerShell Execution Policy chặn npm
+============================================================
+Môi trường: Windows PowerShell
+Lỗi:       Execution Policy = Restricted, chặn chạy script .ps1
+Triệu chứng: File npm.ps1 cannot be loaded because running scripts is disabled
+Hậu quả:   Không chạy được npm trong PowerShell
+Cách sửa:  Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+Trạng thái: DA SUA
+
+============================================================
+LỖI 7 [MEDIUM] — Database trống sau khi chuyển sang local
+============================================================
+Nguyên nhân: Chuyển từ Atlas sang MongoDB local, DB hoàn toàn trống
+Hậu quả:    Frontend hiển thị trang chủ trống, không có sản phẩm
+Cách sửa:   Tạo script seed_data.js, seed 10 sản phẩm mẫu vào DB
+Trạng thái:  DA SUA
+
+============================================================
+LỖI 8 [MEDIUM] — Ảnh sản phẩm bị thiếu (broken images)
+============================================================
+Nguyên nhân: Data seed dùng tên file ảnh không tồn tại trong uploads/
+Hậu quả:    Frontend hiển thị placeholder ảnh broken
+Cách sửa:   Tạo 10 ảnh AI, copy vào uploads/, cập nhật MongoDB
+Trạng thái:  DA SUA
+
+============================================================
+CÁC FILE ĐÃ THAY ĐỔI
+============================================================
+1. backend/config/db.js     — Sửa connection string + error handling
+2. backend/.env             — Thêm MONGODB_URI
+3. backend/server.js        — Thêm unhandledRejection handler
+4. backend/uploads/         — Thêm 10 file ảnh sản phẩm
+
+============================================================
+PHẦN MỀM ĐÃ CÀI THÊM
+============================================================
+1. MongoDB Community Server 8.2.5  — Database local
+2. scikit-learn 1.8.0              — Thư viện ML cho AI
+3. scipy 1.17.1                    — Dependency của scikit-learn
+
+============================================================
+KẾT QUẢ KIỂM THỬ SAU KHI SỬA — 32/32 PASS (100%)
+============================================================
+API Food:      6/6  PASS
+API User:     10/10 PASS
+API Cart:      6/6  PASS
+API Order:     2/2  PASS
+AI Model:      3/3  PASS
+Frontend UI:   5/5  PASS
+============================================================

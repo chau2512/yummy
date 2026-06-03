@@ -1,4 +1,3 @@
-// Phương Trang, Thu Thảo, Phạm Chiến
 // Controllers food nhận yêu cầu HTTP từ routes food để xử lý các logic liên quan đến food
 import foodModel from "../models/foodModel.js";
 import fs from 'fs'

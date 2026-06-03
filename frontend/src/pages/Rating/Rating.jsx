@@ -4,7 +4,6 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import './Rating.css'
 import { StoreContext } from '../../context/StoreContext';
 
-// Thu Thảo, Phạm Chiến
 // Trang Rating để người dùng đánh giá các sản phẩm trong đơn hàng của mình 
 const Rating = () => {
     const { url, token } = useContext(StoreContext);

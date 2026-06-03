@@ -1,4 +1,3 @@
-// Thu Thảo
 // Định nghĩa các routes cho user
 import express from "express"
 import { loginUser, registerUser, getUser, changeUser} from "../controllers/userController.js"

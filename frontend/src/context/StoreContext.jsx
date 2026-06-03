@@ -2,7 +2,6 @@ import { createContext, useEffect, useState } from "react";
 import axios from 'axios';
 export const StoreContext = createContext(null);
 
-// Thu Thảo
 // Tạo context để chia sẻ trạng thái giữa các component
 const StoreContextProvider = (props) => {
 

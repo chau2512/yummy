@@ -1,4 +1,3 @@
-// Phương Trang
 // Định nghĩa cấu trúc bảng food trong cơ sở dữ liệu
 import mongoose from "mongoose";
 

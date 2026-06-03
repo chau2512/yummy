@@ -1,4 +1,3 @@
-// Thu Thảo
 // Controllers user nhận các yêu cầu HTTP từ routes và tương tác với model user để xử lý đăng nhập, đăng kí, lấy thông tin và cập nhật thông tin người dùng
 import userModel from "../models/userModel.js";
 import jwt from "jsonwebtoken"

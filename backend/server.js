@@ -1,4 +1,3 @@
-// Phương Trang
 // Tạo server, gọi hàm kết nối đến cơ sở dữ liệu và định nghĩa các endpoint API
 import express from 'express'
 import cors from 'cors'
@@ -33,3 +32,8 @@ app.get("/", (req, res) => {
 app.listen(port, () => {
     console.log(`Server started on http://localhost:${port}`)
 })
+
+// Xử lý lỗi async không bắt được để tránh crash server
+process.on('unhandledRejection', (err) => {
+    console.error('Unhandled Rejection:', err.message);
+});
